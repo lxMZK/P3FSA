@@ -1,8 +1,6 @@
 # Project 3: Full Stack Application
-====================================
 
 ## Requirements
-------------------------------------
 - [ ] Python/Node backend
 - [ ] Flask/Django/Express backend
 - [ ] React of other frontend framework
