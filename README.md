@@ -26,3 +26,4 @@ _coming soon..._
     - [ ] How to use application
     - [ ] Technologies implemented
     - [ ] Outstanding bugs/WIP
+- [ ] DEPLOY
