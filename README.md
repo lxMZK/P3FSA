@@ -29,7 +29,11 @@ For the initial development stage I will be focusing on creating a general portf
 
 
 ## Tech Used
-_coming soon..._
+React
+React Router Dom
+CSS
+JS
+Node/Express
 
 
 ## WIP
@@ -45,7 +49,7 @@ _coming soon..._
 - [ ] Relational database
 - [ ] ORM/ODM
 - [x] Runs in browser
-- [ ] Responsive to screen size changes
+- [x] Responsive to screen size changes
 - [ ] README.md includes:
     - [x] Application inspiration
     - [ ] How to use application

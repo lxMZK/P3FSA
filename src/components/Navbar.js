@@ -49,11 +49,14 @@ export default function Navbar() {
           <li>
             <Link onClick={handle2} to="/contact"><i class="fa-solid fa-address-card"></i><br/>CONTACT</Link>
           </li>
+          <li>
+            <Link onClick={handle2} to="/chat"><i class="fa-solid fa-message"></i><br/>CHAT</Link>
+          </li>
         </ul>
         <li className="handle">
-          <h2>lxMZK</h2>
+          <h2><a href='https://github.com/lxMZK'>lxMZK</a></h2>
         </li>
-        <li className='toggleV'>
+        <li className='toggleV auth'>
           <a href="">Log-in</a>
         </li>
       </ul>
