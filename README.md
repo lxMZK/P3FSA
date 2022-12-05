@@ -5,6 +5,7 @@
     >relationships through user\>messages
     >highly designable
     >auth for users possible moderation ability
+    >About/Projects/Contact/CHAT
 
 
 >Document storage platform?
@@ -39,7 +40,7 @@ _coming soon..._
 - [ ] User Authentication
 - [ ] Python/Node backend
 - [ ] Flask/Django/Express backend
-- [ ] React of other frontend framework
+- [x] React or other frontend framework
 - [ ] Database with two collections/tables
 - [ ] Relational database
 - [ ] ORM/ODM
