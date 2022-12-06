@@ -1,20 +1,5 @@
 # Project 3: Full Stack Application
 
->##ideas
->chat interface baked into ~portfolio?~
-    >relationships through user\>messages
-    >highly designable
-    >auth for users possible moderation ability
-    >About/Projects/Contact/CHAT
-
-
->Document storage platform?
-    >would folders count?
-    >use database sorting into different categories
-    >relationships established through... 
-
-
-
 
 ## How To
 _coming soon..._
@@ -34,6 +19,10 @@ React Router Dom
 CSS
 JS
 Node/Express
+MySQL
+Axios
+JWT
+Cookie-parser
 
 
 ## WIP
@@ -41,9 +30,9 @@ _coming soon..._
 
 
 ### Requirements
-- [ ] User Authentication
-- [ ] Python/Node backend
-- [ ] Flask/Django/Express backend
+- [x] User Authentication
+- [x] Python/Node backend
+- [x] Flask/Django/Express backend
 - [x] React or other frontend framework
 - [ ] Database with two collections/tables
 - [ ] Relational database
