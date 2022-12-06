@@ -17,14 +17,14 @@ nav {
   z-index: 1;
 }
 
-nav, nav a,ul,li,h2,i {
+nav, nav a, nav ul, nav li, nav h2, nav i {
   background-color: darkred;
   margin: 0;
   padding: 0;
   z-index: 1;
 }
 
-li {
+nav li {
   list-style: none;
 }
 
@@ -126,12 +126,12 @@ b {
   color: darkred;
 }
 
-.me {
+.me, .email {
   width: 20vw;
   margin: 5vw;
 }
 
-.about {
+.about, .contact {
   width: 30vw;
   margin: 5vw;
 }
@@ -160,4 +160,46 @@ b {
   width: 20em;
   height: 20em;
   border-radius: 10%;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact form div {
+  display: flex;
+}
+
+.contact form div input {
+  flex: 1;
+}
+
+.contact input {
+  margin: 2px;
+  height: 30px;
+  background-color: white;
+}
+
+#message {
+  height: 150px;
+}
+
+#submit {
+  margin-left: 20vw;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.socials a {
+  color: white;
+  margin: 20px;
+}
+
+.socials i {
+  font-size: 100px;
 }

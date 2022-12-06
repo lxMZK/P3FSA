@@ -2,19 +2,41 @@ import React from 'react';
 import me from '../assets/me.png';
 
 export default function About() {
+  function getAge() {
+    let today = new Date();
+    let birthday = new Date('Mon Aug 19 1996');
+    let age = today.getFullYear() - birthday.getFullYear();
+    let m = today.getMonth() - birthday.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
   return (
     <div className="content toggleV">
       <div className="about">
         <h1>ABOUT ME</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          Hey there! My name is Alex Mizak and I am a {getAge()} year old web
+          developer. Working with computers has always been my passion and I
+          have been expanding my knowledge in order to pursue this passion.
         </p>
+        <p>I have experience in working with the following:</p>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>SASS/SCSS</li>
+            <li>Javascript</li>
+            <li>Typescript</li>
+            <li>React</li>
+            <li>Node</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>Visual Basic</li>
+            <li>SQL</li>
+        </ul>
+        <p>Currently I work in DevOps at NetApp</p>
       </div>
       <img className="me" src={me} alt="profile" />
     </div>

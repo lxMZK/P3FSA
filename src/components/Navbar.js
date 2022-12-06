@@ -21,7 +21,7 @@ export default function Navbar() {
   }
 
   function handle1(){
-    if (location != '/') {
+    if (location !== '/') {
         hide()
     }
   }
@@ -57,7 +57,7 @@ export default function Navbar() {
           <h2><a href='https://github.com/lxMZK'>lxMZK</a></h2>
         </li>
         <li className='toggleV auth'>
-          <a href=""><i class="fa-solid fa-right-to-bracket"></i><br/>Log-in</a>
+          <a href="/login"><i class="fa-solid fa-right-to-bracket"></i><br/>Log-in</a>
         </li>
       </ul>
     </nav>
