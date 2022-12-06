@@ -57,7 +57,7 @@ export default function Navbar() {
           <h2><a href='https://github.com/lxMZK'>lxMZK</a></h2>
         </li>
         <li className='toggleV auth'>
-          <a href="">Log-in</a>
+          <a href=""><i class="fa-solid fa-right-to-bracket"></i><br/>Log-in</a>
         </li>
       </ul>
     </nav>
