@@ -18,7 +18,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/auth/register', inputs);
+      const res = await axios.post('/auth/register', inputs);
       navigate('/auth/login');
     } catch (err) {
       console.log(err);
@@ -53,7 +53,7 @@ export default function Register() {
             required
             onChange={handleChange}
           />
-          <input type="submit" onClick={handleSubmit} />
+          <button onClick={handleSubmit}>Register</button>
         </form>
         <Link to="/auth/login">Already have an account?</Link>
       </div>

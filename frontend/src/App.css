@@ -17,7 +17,7 @@ nav {
   z-index: 1;
 }
 
-nav, nav a, nav ul, nav li, nav h2, nav i {
+nav, nav a, nav ul, nav li, nav h2, nav i{
   background-color: darkred;
   margin: 0;
   padding: 0;
@@ -109,6 +109,11 @@ nav a:hover, nav a:hover> i {
 
 .auth a {
   margin-right: 10px;
+}
+
+.auth div {
+  display: flex;
+  background-color: darkred;
 }
 
 .content {
