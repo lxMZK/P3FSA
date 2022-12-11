@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/authContext';
+import defaultImg from '../assets/default.jpg'
 
 export default function Navbar() {
   const { currentUser, logout } = useContext(AuthContext);
@@ -92,7 +93,8 @@ export default function Navbar() {
         <li className="toggleV auth">
           {currentUser ? (
             <div>
-              <p>Welcome, {currentUser.username}</p>
+              <img className='profile' src={defaultImg} alt='prof' />
+              <p>{currentUser.username}</p>
               <Link onClick={logout}>
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <br />

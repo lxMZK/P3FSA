@@ -23,6 +23,7 @@ MySQL
 Axios
 JWT
 Cookie-parser
+Context-provider
 
 
 ## WIP
@@ -34,15 +35,15 @@ _coming soon..._
 - [x] Python/Node backend
 - [x] Flask/Django/Express backend
 - [x] React or other frontend framework
-- [ ] Database with two collections/tables
-- [ ] Relational database
-- [ ] ORM/ODM
+- [x] Database with two collections/tables
+- [x] Relational database
+- [x] ORM/ODM
 - [x] Runs in browser
 - [x] Responsive to screen size changes
 - [ ] README.md includes:
     - [x] Application inspiration
     - [ ] How to use application
-    - [ ] Technologies implemented
+    - [x] Technologies implemented
     - [ ] Outstanding bugs/WIP
 - [x] Track on github
 - [ ] DEPLOY

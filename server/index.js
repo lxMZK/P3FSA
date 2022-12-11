@@ -58,10 +58,28 @@ app.post('/auth/login', async (req, res) => {
 });
 
 app.post('/auth/logout', async (req, res) => {
-  res.clearCookie("access_token",{
-    sameSite:"none",
-    secure:true
-  }).status(200).json('logged out')
+  res
+    .clearCookie('access_token', {
+      sameSite: 'none',
+      secure: true,
+    })
+    .status(200)
+    .json('logged out');
+});
+
+app.get('/chat', async (req, res) => {
+  await pool.query('SELECT * FROM messages LEFT JOIN users ON messages.uid = users.id', (err, data) => {
+    if (err) return res.send(err);
+
+    return res.status(200).json(data);
+  });
+});
+
+app.post('/chat', async (req, res) => {
+  pool.query('INSERT INTO messages(msg, uid) VALUES ($1, $2)', [
+    req.body.msg,
+    req.body.id,
+  ]);
 });
 
 app.listen(3001, () => {
