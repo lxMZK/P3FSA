@@ -93,8 +93,8 @@ export default function Navbar() {
         <li className="toggleV auth">
           {currentUser ? (
             <div>
+              <p>@{currentUser.username}</p>
               <img className='profile' src={defaultImg} alt='prof' />
-              <p>{currentUser.username}</p>
               <Link onClick={logout}>
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <br />

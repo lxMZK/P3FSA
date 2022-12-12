@@ -94,7 +94,7 @@ nav a:hover, nav a:hover> i {
 }
 
 .horizontal .container .handle {
-  margin-right: 18vw;
+  margin-right: 10%;
 }
 
 .vertical .container .handle {
@@ -108,7 +108,7 @@ nav a:hover, nav a:hover> i {
 }
 
 .auth a {
-  margin-right: 10px;
+  margin: 10px;
 }
 
 .auth div {
@@ -220,11 +220,11 @@ input {
   height: 50px;
   border-radius: 100%;
   border: rgb(70,0,0) solid 5px;
+  margin: 15px;
 }
 
 .auth p {
   color: rgb(70, 0, 0);
-  margin: 5px 15px 15px 5px;
 }
 
 .chat {
@@ -233,7 +233,7 @@ input {
 }
 
 .board {
-  width: calc(100vw - 110px);
+  width: calc(100vw - 130px);
   height: calc(100vh - 90px);
   border: solid 1px;
   display: flex;

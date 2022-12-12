@@ -47,22 +47,22 @@ export default function Chat() {
       <div className="chat">
         <h1>CHAT</h1>
         <div className="board">
-          {messages.map((message) => (
-            <div
-              className={
-                currentUser.id === message.uid
-                  ? 'post myMessage'
-                  : 'post otherMessage'
-              }
-            >
-              <p>{message.username}</p>
-              <p>{message.msg}</p>
-            </div>
-          ))}
+          {messages.map((message) =>
+            currentUser.id === message.uid ? (
+              <div className="post myMessage">
+                <p>{message.msg}</p>
+              </div>
+            ) : (
+              <div className="post otherMessage">
+                <p>@{message.username}</p>
+                <p>{message.msg}</p>
+              </div>
+            )
+          )}
         </div>
         <form>
           <input id="input" type="text" onChange={handleChange} />
-          <input className='msgSub' type="submit" onClick={handleSubmit} />
+          <input className="msgSub" type="submit" value='Send' onClick={handleSubmit} />
         </form>
       </div>
     </div>
