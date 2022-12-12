@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function Register() {
   const navigate = useNavigate();
 
-  const [error,setError] = useState(null)
+  const [error, setError] = useState(null);
   const [inputs, setInputs] = useState({
     username: '',
     email: '',
@@ -16,13 +16,26 @@ export default function Register() {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
+    setError(null)
     e.preventDefault();
+    if (inputs.username === '') {
+      setError('Invalid Username');
+      return;
+    }
+    if (inputs.email === '') {
+      setError('Invalid Email');
+      return;
+    }
+    if (inputs.password === '') {
+      setError('Invalid Password');
+      return;
+    }
     try {
-      await axios.post('/auth/register', inputs);
+      axios.post('/auth/register', inputs);
       navigate('/auth/login');
     } catch (err) {
-      setError("Server not found")
+      setError(err.response.data);
     }
   };
 
@@ -30,7 +43,7 @@ export default function Register() {
     <div className="content">
       <div className="register">
         <h1>REGISTER</h1>
-        {error&&<p>{error}</p>}
+        {error && <p>{error}</p>}
         <form>
           <input
             id="username"
@@ -55,7 +68,7 @@ export default function Register() {
             required
             onChange={handleChange}
           />
-          <input type='submit' value='Register' onClick={handleSubmit}/>
+          <input type="submit" value="Register" onClick={handleSubmit} />
         </form>
         <Link to="/auth/login">Already have an account?</Link>
       </div>

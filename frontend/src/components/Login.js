@@ -17,12 +17,21 @@ export default function Login() {
   };
 
   const handleSubmit = async (e) => {
+    setError(null)
     e.preventDefault();
+    if (inputs.username === '') {
+      setError('Invalid Username');
+      return;
+    }
+    if (inputs.password === '') {
+      setError('Invalid Password');
+      return;
+    }
     try {
       await login(inputs)
       navigate('/chat');
     } catch (err) {
-      setError('Server not found')
+      setError(err.response.data)
     }
   };
 
