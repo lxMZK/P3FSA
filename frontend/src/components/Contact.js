@@ -27,12 +27,7 @@ export default function Contact() {
     <div className="content toggleV">
       <div className="contact">
         <h1>CONTACT ME</h1>
-        <form
-          id="email"
-          action="https://api.web3forms.com/submit"
-          method="POST"
-          target="output"
-        >
+        <form id="email">
           <div>
             <input
               type="hidden"
@@ -91,7 +86,6 @@ export default function Contact() {
             </h3>
           </div>
         </a>
-        <iframe name="output" hidden={true} on></iframe>
       </div>
     </div>
   );

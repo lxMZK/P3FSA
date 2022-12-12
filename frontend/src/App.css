@@ -137,9 +137,10 @@ b {
   color: darkred;
 }
 
-.me, .email {
+.me {
   width: 20vw;
   margin: 5vw;
+  box-shadow: -10px 10px 20px 2px;
 }
 
 .about, .contact {
@@ -171,6 +172,7 @@ b {
   width: 20em;
   height: 20em;
   border-radius: 10%;
+  box-shadow: -10px 10px 20px 2px;
 }
 
 .contact form {
@@ -227,9 +229,8 @@ input {
   color: rgb(70, 0, 0);
 }
 
-.chat {
-  margin: 0 0 0 100px;
-  height: 100vh;
+.chat, .projects, .contact {
+  margin-left: 100px;
 }
 
 .board {
@@ -308,8 +309,15 @@ input {
   color: rgb(0,114,177);
 }
 
+.socials {
+  border: black solid 1px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: -10px 10px 20px 2px;
+}
+
 .socials a {
-  color: gray;
+  color: white;
 }
 
 .socials div {
@@ -320,4 +328,8 @@ input {
 
 .socials h3 {
   margin-left: 10px;
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
 }

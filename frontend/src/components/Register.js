@@ -53,7 +53,7 @@ export default function Register() {
             required
             onChange={handleChange}
           />
-          <button onClick={handleSubmit}>Register</button>
+          <input type='submit' value='Register' onClick={handleSubmit}/>
         </form>
         <Link to="/auth/login">Already have an account?</Link>
       </div>

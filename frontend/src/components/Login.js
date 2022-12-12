@@ -46,7 +46,7 @@ export default function Login() {
             required
             onChange={handleChange}
           />
-          <input type="submit" onClick={handleSubmit} />
+          <input type="submit" value='Log-in' onClick={handleSubmit} />
         </form>
         <Link to="/auth/register">Need an Account?</Link>
       </div>

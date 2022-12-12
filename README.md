@@ -29,7 +29,6 @@ Context-provider
 
 ## WIP
 
-Contact page email functionality
 Style improvements
 User Profile Views
 User Image
