@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import defaultImg from '../assets/default.jpg';
 import { AuthContext } from '../context/authContext';
-import defaultImg from '../assets/default.jpg'
 
 export default function Navbar() {
   const { currentUser, logout } = useContext(AuthContext);
@@ -14,7 +14,6 @@ export default function Navbar() {
     ];
     for (let i = 0; i < hidden.length; i++) {
       hidden[i].classList.remove('hide');
-      console.log(hidden[i]);
     }
   }
 
@@ -78,7 +77,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link onClick={handle2} to="/chat">
+            <Link onClick={handle2} to={currentUser?'/chat':'/auth/login'}>
               <i class="fa-solid fa-message"></i>
               <br />
               CHAT
@@ -94,8 +93,11 @@ export default function Navbar() {
           {currentUser ? (
             <div>
               <p>@{currentUser.username}</p>
-              <img className='profile' src={defaultImg} alt='prof' />
-              <Link onClick={logout}>
+              <img className="profile" src={defaultImg} alt="prof" />
+              <Link
+                to={location === '/chat' ? '/auth/login' : location}
+                onClick={logout}
+              >
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <br />
                 Log-out

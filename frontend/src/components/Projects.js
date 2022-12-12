@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import chat from '../assets/chat.png';
 import msa from '../assets/msa.png';
 import snake from '../assets/snake.png';
+import { AuthContext } from '../context/authContext';
 
 export default function Projects() {
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <div className="content toggleV">
       <div className="projects">
@@ -48,9 +51,21 @@ export default function Projects() {
           <img className="project" src={chat} alt="project" />
           <div>
             <h3>THIS PAGE!</h3>
-            <p>Currently I'm working on a functional chat interface baked into this page. Take a look!</p>
-            <p>Github URL: <a href='https://github.com/lxMZK/P3FSA'>https://github.com/lxMZK/P3FSA</a></p>
-            <p><Link to='/chat'>Take Me to Chat!</Link></p>
+            <p>
+              Currently I'm working on a functional chat interface baked into
+              this page. Take a look!
+            </p>
+            <p>
+              Github URL:{' '}
+              <a href="https://github.com/lxMZK/P3FSA">
+                https://github.com/lxMZK/P3FSA
+              </a>
+            </p>
+            <p>
+              <Link to={currentUser ? '/chat' : '/auth/login'}>
+                Take Me to Chat!
+              </Link>
+            </p>
           </div>
         </div>
       </div>
