@@ -3,14 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/authContext';
 
 export default function Login() {
+  const navigate = useNavigate();
+  const {login} = useContext(AuthContext)
+
+  const [error,setError] = useState(null)
   const [inputs, setInputs] = useState({
     username: '',
     password: '',
   });
-
-  const navigate = useNavigate();
-
-  const {login} = useContext(AuthContext)
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -22,7 +22,7 @@ export default function Login() {
       await login(inputs)
       navigate('/chat');
     } catch (err) {
-      console.log(err);
+      setError('Server not found')
     }
   };
 
@@ -30,6 +30,7 @@ export default function Login() {
     <div className="content">
       <div className="login">
         <h1>LOGIN</h1>
+        {error&&<p>{error}</p>}
         <form>
           <input
             id="username"

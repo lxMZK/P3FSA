@@ -333,3 +333,20 @@ input {
 input[type=submit]:hover {
   cursor: pointer;
 }
+
+.login, .register {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: -10px 10px 20px 2px;
+  padding: 10px;
+  padding-top: 0;
+}
+
+.login form, .register form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login p, .register p {
+  color: red;
+}

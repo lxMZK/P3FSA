@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function Register() {
   const navigate = useNavigate();
 
+  const [error,setError] = useState(null)
   const [inputs, setInputs] = useState({
     username: '',
     email: '',
@@ -21,7 +22,7 @@ export default function Register() {
       await axios.post('/auth/register', inputs);
       navigate('/auth/login');
     } catch (err) {
-      console.log(err);
+      setError("Server not found")
     }
   };
 
@@ -29,6 +30,7 @@ export default function Register() {
     <div className="content">
       <div className="register">
         <h1>REGISTER</h1>
+        {error&&<p>{error}</p>}
         <form>
           <input
             id="username"
