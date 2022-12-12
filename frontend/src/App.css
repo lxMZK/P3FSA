@@ -134,7 +134,7 @@ nav a:hover, nav a:hover> i {
 }
 
 b {
-  color: darkred;
+  color: red;
 }
 
 .me {
@@ -154,6 +154,7 @@ b {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
+  color: white;
 }
 
 .projects div {
@@ -354,10 +355,6 @@ input[type=submit]:hover {
 .login input[type=submit], .register input[type=submit] {
   background-color: darkred;
   color: white;
-}
-
-.home {
-  width: 100%;
 }
 
 canvas {

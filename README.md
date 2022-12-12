@@ -47,6 +47,8 @@ Axios
 JWT
 Cookie-parser
 Context-provider
+tsParticles
+Date
 
 ## WIP
 
@@ -55,7 +57,6 @@ User Profile Views
 User Image
 User Styles and other settings
 Chat moderation functions
-Make home page more interesting
 
 ### Requirements
 
