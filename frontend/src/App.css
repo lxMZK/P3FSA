@@ -183,7 +183,7 @@ b {
 }
 
 .contact form div input {
-  flex: 1;
+  width: 100%;
 }
 
 input {
@@ -294,4 +294,30 @@ input {
   border: none;
   border-right: solid 1px;
   border-bottom: solid 1px;
+}
+
+.github i, .github h3 {
+  color: black;
+}
+
+.discord i, .discord h3 {
+  color: rgb(114,137,218);
+}
+
+.linkedin i, .linkedin h3 {
+  color: rgb(0,114,177);
+}
+
+.socials a {
+  color: gray;
+}
+
+.socials div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials h3 {
+  margin-left: 10px;
 }

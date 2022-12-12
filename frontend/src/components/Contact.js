@@ -1,12 +1,44 @@
 import React from 'react';
 
 export default function Contact() {
+  const handleSubmit = async (e) => {
+    const form = document.getElementById('email');
+    const formData = new FormData(form);
+    e.preventDefault();
+    const object = {};
+    formData.forEach((value, key) => {
+      object[key] = value;
+    });
+    const json = JSON.stringify(object);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: json,
+    });
+
+    form.reset();
+  };
+
   return (
     <div className="content toggleV">
       <div className="contact">
         <h1>CONTACT ME</h1>
-        <form action="send" method="POST" enctype="multipart/form-data">
+        <form
+          id="email"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          target="output"
+        >
           <div>
+            <input
+              type="hidden"
+              name="access_key"
+              value="b0b74868-d2e9-4c90-bf4f-3c0adfc3f0ec"
+            />
             <input
               id="name"
               name="name"
@@ -26,20 +58,40 @@ export default function Contact() {
           <div>
             <input id="message" name="message" placeholder="Message" required />
           </div>
-          <input id="submit" name="submit" type="submit" />
+          <input
+            id="submit"
+            name="submit"
+            type="submit"
+            onClick={handleSubmit}
+          />
         </form>
       </div>
       <div className="socials">
         <h2>SOCIALS</h2>
-        <a href="https://github.com/lxMZK">
-          <i className="fa-brands fa-github"></i>
+        <a className="github" href="https://github.com/lxMZK">
+          <div>
+            <i className="fa-brands fa-github"></i>
+            <h3>/lxMZK</h3>
+          </div>
         </a>
-        <a href="https://discordapp.com/users/142806836955971586">
-          <i className="fa-brands fa-discord"></i>
+        <a
+          className="discord"
+          href="https://discordapp.com/users/142806836955971586"
+        >
+          <div>
+            <i className="fa-brands fa-discord"></i>
+            <h3>@lxMZK#0943</h3>
+          </div>
         </a>
-        <a href="https://linkedin.com">
-          <i className="fa-brands fa-linkedin"></i>
+        <a className="linkedin" href="https://linkedin.com">
+          <div>
+            <i className="fa-brands fa-linkedin"></i>
+            <h3>
+              <em>coming soon...</em>
+            </h3>
+          </div>
         </a>
+        <iframe name="output" hidden={true} on></iframe>
       </div>
     </div>
   );
