@@ -38,18 +38,18 @@ For the initial development stage I will be focusing on creating a general portf
 
 ## Tech Used
 
--React
--React Router Dom
--CSS
--JS
--Node/Express
--PSQL/Postgres
--Axios
--JWT
--Cookie-parser
--Context-provider
--tsParticles
--Date
+- React
+- React Router Dom
+- CSS
+- JS
+- Node/Express
+- PSQL/Postgres
+- Axios
+- JWT
+- Cookie-parser
+- Context-provider
+- tsParticles
+- Date
 
 ## WIP
 
