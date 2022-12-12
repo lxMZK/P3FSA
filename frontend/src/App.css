@@ -355,3 +355,18 @@ input[type=submit]:hover {
   background-color: darkred;
   color: white;
 }
+
+.home {
+  width: 100%;
+}
+
+canvas {
+  background-color: black;
+}
+
+.trail { /* className for the trail elements */
+  position: absolute;
+  height: 6px; width: 6px;
+  border-radius: 3px;
+  background: teal;
+}
