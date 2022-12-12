@@ -350,3 +350,8 @@ input[type=submit]:hover {
 .login p, .register p {
   color: red;
 }
+
+.login input[type=submit], .register input[type=submit] {
+  background-color: darkred;
+  color: white;
+}

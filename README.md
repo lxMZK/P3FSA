@@ -6,6 +6,27 @@ Most of the website can be viewed and accessed via the navbar located either at 
 
 A user can create a new account at any time. A link to the register page can be found on the login page. When creating an account, a unique username AND email must be provided.
 
+### Routes
+
+|Route Name|URL Path|Purpose|
+|...|...|...|
+|Index|/|Display home page|
+|About|/about|Display about page|
+|Projects|/projects|Display project page|
+|Contact|/contact|Display contact page|
+|Chat|/chat|Display chat page|
+|Login|/auth/login|Display login page|
+|Register|/auth/register|Display register page|
+
+### REST API Routes
+
+|Route Name|URL Path|HTTP Method|Purpose|
+|...|...|...|...|
+|Chat|/chat|GET|Get all chat messages|
+|Chat|/chat|POST|Submit new message|
+|Login|/auth/login|POST|Set current user|
+|Register|/auth/register|POST|Submit new user|
+
 ## App inspiration
 
 With all of the new knowledge I have been garnering, I wanted to create a platform on which I could experiment and let my creations free.
