@@ -35,6 +35,7 @@ User Profile Views
 User Image
 User Styles and other settings
 Chat moderation functions
+Authentication Error handling
 
 ### Requirements
 

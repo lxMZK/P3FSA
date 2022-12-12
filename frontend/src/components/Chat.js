@@ -9,7 +9,7 @@ export default function Chat() {
 
   const send = {
     msg: input,
-    id: currentUser.id,
+    id: currentUser? currentUser.id : 0,
   };
 
   const handleChange = (e) => {
@@ -30,30 +30,26 @@ export default function Chat() {
     const fetchData = async () => {
       try {
         const res = await axios.get('/chat');
-        console.log(res.data);
         setMessages(res.data.rows.reverse());
-        console.log(res.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
-  });
-
-  console.log(input);
+  },);
 
   return (
     <div className="content">
       <div className="chat">
         <h1>CHAT</h1>
         <div className="board">
-          {messages.map((message) =>
-            currentUser.id === message.uid ? (
-              <div className="post myMessage">
+          {messages?.map((message,i) =>
+            currentUser?.id === message.uid ? (
+              <div key={i} className="post myMessage">
                 <p>{message.msg}</p>
               </div>
             ) : (
-              <div className="post otherMessage">
+              <div key={i} className="post otherMessage">
                 <p>@{message.username}</p>
                 <p>{message.msg}</p>
               </div>
