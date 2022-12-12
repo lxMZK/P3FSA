@@ -50,7 +50,7 @@ export default function Chat() {
               </div>
             ) : (
               <div key={i} className="post otherMessage">
-                <p>@{message.username}</p>
+                <p>@{message.username} {message.fname} {message.lname}</p>
                 <p>{message.msg}</p>
               </div>
             )

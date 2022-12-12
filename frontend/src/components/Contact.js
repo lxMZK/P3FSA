@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../context/authContext';
 
 export default function Contact() {
+  const {currentUser} = useContext(AuthContext)
+
   const handleSubmit = async (e) => {
     const form = document.getElementById('email');
     const formData = new FormData(form);
@@ -40,13 +43,15 @@ export default function Contact() {
               name="name"
               placeholder="Name"
               type="text"
+              value={currentUser?(currentUser.fname?currentUser.fname:'')+' '+(currentUser.lname?currentUser.lname:''):('')}
               required
-            />
+              />
             <input
               id="email"
               name="email"
               placeholder="Email"
               type="email"
+              value={currentUser?.email}
               required
             />
           </div>

@@ -21,7 +21,6 @@ app.post('/auth/register', async (req, res) => {
 
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(req.body.password, salt);
-      console.log(hash);
 
       pool.query(
         'INSERT INTO users(username, email, password, fname, lname) VALUES ($1, $2, $3, $4, $5)',
