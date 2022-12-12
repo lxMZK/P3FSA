@@ -1,4 +1,4 @@
-* {
+html {
   background-color: gray;
 }
 
@@ -130,7 +130,7 @@ nav a:hover, nav a:hover> i {
   flex-direction: row;
   justify-content: center;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 b {
@@ -225,5 +225,73 @@ input {
 .auth p {
   color: rgb(70, 0, 0);
   margin: 5px 15px 15px 5px;
+}
 
+.chat {
+  margin: 0 0 0 100px;
+  height: 100vh;
+}
+
+.board {
+  width: calc(100vw - 110px);
+  height: calc(100vh - 90px);
+  border: solid 1px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  background-color: white;
+  overflow: auto;
+}
+
+.chat h1 {
+  margin: 0;
+}
+
+.post {
+  width: auto;
+  max-width: 66%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 3px;
+}
+
+.post p {
+  margin: 0;
+  margin: 5px;
+}
+
+.myMessage {
+  margin-right: 5px;
+  margin-left: auto;
+  background-color: cornflowerblue;
+}
+
+.otherMessage {
+  margin-left: 5px;
+  margin-right: auto;
+  background-color: lightgray;
+}
+
+.chat form {
+  width: 100%;
+  display: flex;
+}
+
+#input {
+  margin: 0;
+  padding: 0;
+  border: solid 1px;
+  border-top: none;
+  width: calc(100% - 72px);
+  height: 30px;
+}
+
+.msgSub{
+  height: 31px;
+  margin: 0;
+  padding: 0;
+  width: 70px;
+  border: none;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
 }

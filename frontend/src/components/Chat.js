@@ -17,6 +17,7 @@ export default function Chat() {
   };
 
   const handleSubmit = async (e) => {
+    document.getElementById('input').value = '';
     e.preventDefault();
     try {
       await axios.post('/chat', send);
@@ -29,8 +30,8 @@ export default function Chat() {
     const fetchData = async () => {
       try {
         const res = await axios.get('/chat');
-        console.log(res.data)
-        setMessages(res.data.rows);
+        console.log(res.data);
+        setMessages(res.data.rows.reverse());
         console.log(res.data);
       } catch (err) {
         console.log(err);
@@ -44,16 +45,25 @@ export default function Chat() {
   return (
     <div className="content">
       <div className="chat">
-        <h1>CHAT PAGE</h1>
-        <div>
+        <h1>CHAT</h1>
+        <div className="board">
           {messages.map((message) => (
-            <p>
-              {message.msg} :: {message.username}
-            </p>
+            <div
+              className={
+                currentUser.id === message.uid
+                  ? 'post myMessage'
+                  : 'post otherMessage'
+              }
+            >
+              <p>{message.username}</p>
+              <p>{message.msg}</p>
+            </div>
           ))}
         </div>
-        <input type="text" onChange={handleChange} />
-        <input type="submit" onClick={handleSubmit} />
+        <form>
+          <input id="input" type="text" onChange={handleChange} />
+          <input className='msgSub' type="submit" onClick={handleSubmit} />
+        </form>
       </div>
     </div>
   );
