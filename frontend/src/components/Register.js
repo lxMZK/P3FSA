@@ -10,6 +10,8 @@ export default function Register() {
     username: '',
     email: '',
     password: '',
+    fname: '',
+    lname: '',
   });
 
   const handleChange = (e) => {
@@ -17,7 +19,7 @@ export default function Register() {
   };
 
   const handleSubmit = (e) => {
-    setError(null)
+    setError(null);
     e.preventDefault();
     if (inputs.username === '') {
       setError('Invalid Username');
@@ -45,6 +47,18 @@ export default function Register() {
         <h1>REGISTER</h1>
         {error && <p>{error}</p>}
         <form>
+          <input
+            id="fname"
+            name="fname"
+            placeholder="First Name"
+            onChange={handleChange}
+          />
+          <input
+            id="lname"
+            name="lname"
+            placeholder="Last Name"
+            onChange={handleChange}
+          />
           <input
             id="username"
             name="username"

@@ -4,8 +4,9 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     const form = document.getElementById('email');
     const formData = new FormData(form);
-    e.preventDefault();
     const object = {};
+    
+    e.preventDefault();
     formData.forEach((value, key) => {
       object[key] = value;
     });

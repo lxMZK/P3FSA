@@ -24,8 +24,8 @@ app.post('/auth/register', async (req, res) => {
       console.log(hash);
 
       pool.query(
-        'INSERT INTO users(username, email, password) VALUES ($1, $2, $3)',
-        [req.body.username, req.body.email, hash]
+        'INSERT INTO users(username, email, password, fname, lname) VALUES ($1, $2, $3, $4, $5)',
+        [req.body.username, req.body.email, hash, req.body.fname, req.body.lname]
       );
     }
   );
