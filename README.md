@@ -9,7 +9,7 @@ A user can create a new account at any time. A link to the register page can be 
 ### Routes
 
 |Route Name|URL Path|Purpose|
-|...|...|...|
+|---|---|---|
 |Index|/|Display home page|
 |About|/about|Display about page|
 |Projects|/projects|Display project page|
@@ -21,7 +21,7 @@ A user can create a new account at any time. A link to the register page can be 
 ### REST API Routes
 
 |Route Name|URL Path|HTTP Method|Purpose|
-|...|...|...|...|
+|---|---|---|---|
 |Chat|/chat|GET|Get all chat messages|
 |Chat|/chat|POST|Submit new message|
 |Login|/auth/login|POST|Set current user|
