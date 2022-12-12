@@ -1,4 +1,5 @@
 # Project 3: Full Stack Application
+*Alex Mizak*
 
 ## How To
 
@@ -42,7 +43,7 @@ React Router Dom
 CSS
 JS
 Node/Express
-MySQL
+PSQL/Postgres
 Axios
 JWT
 Cookie-parser
