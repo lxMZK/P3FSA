@@ -1,18 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/authContext';
 
 export default function Contact() {
-  const {currentUser} = useContext(AuthContext)
+  const { currentUser } = useContext(AuthContext);
+  const [error,setError] = useState(null)
 
   const handleSubmit = async (e) => {
     const form = document.getElementById('email');
     const formData = new FormData(form);
     const object = {};
     
+    setError(null)
     e.preventDefault();
+
     formData.forEach((value, key) => {
       object[key] = value;
     });
+
+    if (object['email']===''){
+      setError('Invalid Email')
+      return
+    }
+
+    if (object['message']===''){
+      setError('Invalid Message')
+      return
+    }
+
     const json = JSON.stringify(object);
 
     fetch('https://api.web3forms.com/submit', {
@@ -31,6 +45,7 @@ export default function Contact() {
     <div className="content toggleV">
       <div className="contact">
         <h1>CONTACT ME</h1>
+        {error&&<p>{error}</p>}
         <form id="email">
           <div>
             <input
@@ -43,15 +58,21 @@ export default function Contact() {
               name="name"
               placeholder="Name"
               type="text"
-              value={currentUser?(currentUser.fname?currentUser.fname:'')+' '+(currentUser.lname?currentUser.lname:''):('')}
+              defaultValue={
+                currentUser
+                  ? (currentUser.fname ? currentUser.fname : '') +
+                    ' ' +
+                    (currentUser.lname ? currentUser.lname : '')
+                  : ''
+              }
               required
-              />
+            />
             <input
               id="email"
               name="email"
               placeholder="Email"
               type="email"
-              value={currentUser?.email}
+              defaultValue={currentUser ? currentUser.email : ''}
               required
             />
           </div>

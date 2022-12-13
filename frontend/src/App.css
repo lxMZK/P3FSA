@@ -133,10 +133,6 @@ nav a:hover, nav a:hover> i {
   width: 100%;
 }
 
-b {
-  color: red;
-}
-
 .me {
   width: 20vw;
   margin: 5vw;
@@ -172,7 +168,7 @@ b {
 .project {
   width: 20em;
   height: 20em;
-  border-radius: 10%;
+  border-radius: 5%;
   box-shadow: -10px 10px 20px 2px;
 }
 
@@ -237,12 +233,21 @@ input {
 .board {
   width: calc(100vw - 130px);
   height: calc(100vh - 90px);
-  border: solid 1px;
+  border: solid 1px white;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  background-color: white;
+  background-color: black;
   overflow: auto;
+}
+
+.board::-webkit-scrollbar {
+  width: 5px;
+}  
+
+.board::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 2.5px;
 }
 
 .chat h1 {
@@ -265,7 +270,8 @@ input {
 .myMessage {
   margin-right: 5px;
   margin-left: auto;
-  background-color: cornflowerblue;
+  background-color: darkred;
+  color: white
 }
 
 .otherMessage {
@@ -282,10 +288,11 @@ input {
 #input {
   margin: 0;
   padding: 0;
-  border: solid 1px;
+  border: solid 1px white;
   border-top: none;
   width: calc(100% - 72px);
   height: 30px;
+  background-color: black;
 }
 
 .msgSub{
@@ -296,6 +303,8 @@ input {
   border: none;
   border-right: solid 1px;
   border-bottom: solid 1px;
+  background-color: black;
+  color: white;
 }
 
 .github i, .github h3 {
@@ -348,7 +357,7 @@ input[type=submit]:hover {
   flex-direction: column;
 }
 
-.login p, .register p {
+.login p, .register p, b {
   color: red;
 }
 
@@ -366,4 +375,8 @@ canvas {
   height: 6px; width: 6px;
   border-radius: 3px;
   background: teal;
+}
+
+.contact p {
+  color: darkred;
 }
