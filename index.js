@@ -5,10 +5,16 @@ const pool = require('./db');
 const bcrypt = require('bcryptjs');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
+const path = require('path');
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+}
 
 app.post('/auth/register', async (req, res) => {
   pool.query(
@@ -24,13 +30,19 @@ app.post('/auth/register', async (req, res) => {
 
       pool.query(
         'INSERT INTO users(username, email, password, fname, lname) VALUES ($1, $2, $3, $4, $5)',
-        [req.body.username, req.body.email, hash, req.body.fname, req.body.lname]
+        [
+          req.body.username,
+          req.body.email,
+          hash,
+          req.body.fname,
+          req.body.lname,
+        ]
       );
     }
   );
 });
 
-app.post('/auth/login', async (req, res) => {
+app.post('/auth/login', (req, res) => {
   pool.query(
     'SELECT * FROM users WHERE username = $1',
     [req.body.username],
@@ -56,7 +68,7 @@ app.post('/auth/login', async (req, res) => {
   );
 });
 
-app.post('/auth/logout', async (req, res) => {
+app.post('/auth/logout', (req, res) => {
   res
     .clearCookie('access_token', {
       sameSite: 'none',
@@ -66,12 +78,15 @@ app.post('/auth/logout', async (req, res) => {
     .json('logged out');
 });
 
-app.get('/chat', async (req, res) => {
-  await pool.query('SELECT * FROM messages LEFT JOIN users ON messages.uid = users.id', (err, data) => {
-    if (err) return res.send(err);
+app.get('/chat', (req, res) => {
+  pool.query(
+    'SELECT * FROM messages LEFT JOIN users ON messages.uid = users.id',
+    (err, data) => {
+      if (err) return res.send(err);
 
-    return res.status(200).json(data);
-  });
+      return res.status(200).json(data);
+    }
+  );
 });
 
 app.post('/chat', async (req, res) => {
@@ -81,6 +96,10 @@ app.post('/chat', async (req, res) => {
   ]);
 });
 
-app.listen(3001, () => {
-  console.log('server on 3001');
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build/index.html'));
+});
+
+app.listen(PORT, () => {
+  console.log(`server on ${PORT}`);
 });
