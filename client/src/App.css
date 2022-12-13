@@ -29,7 +29,7 @@ nav li {
 
 nav a {
   text-decoration: none;
-  color: rgb(70, 0, 0);
+  color: white;
   text-align: center;
   border-radius: 10%;
 }
@@ -43,7 +43,7 @@ nav a:hover, nav a:hover> i {
 }
 
 .handle a{
-  color: black;
+  color: white;
   margin: 0;
   padding: 0;
 }
@@ -133,6 +133,10 @@ nav a:hover, nav a:hover> i {
   margin-left: 100px;
 }
 
+.content h1, .content p, .content ul, .content h3 {
+  color: white;
+}
+
 .homeContent {
   display: flex;
   z-index: 0;
@@ -150,7 +154,7 @@ nav a:hover, nav a:hover> i {
   box-shadow: -10px 10px 20px 2px;
 }
 
-.about, .contact {
+.about {
   width: 30vw;
   margin: 5vw;
 }
@@ -207,7 +211,7 @@ input {
 }
 
 #submit {
-  margin-left: 20vw;
+  margin-left: 80%;
 }
 
 .socials {
@@ -246,6 +250,7 @@ input {
   align-items: center;
   background-color: black;
   overflow: auto;
+  opacity: 50%;
 }
 
 .board::-webkit-scrollbar {
@@ -332,6 +337,7 @@ input {
   border-radius: 10px;
   background-color: white;
   box-shadow: -10px 10px 20px 2px;
+  margin: 5vw;
 }
 
 .socials a {
@@ -386,7 +392,7 @@ canvas {
 }
 
 .contact p {
-  color: darkred;
+  color: red;
 }
 
 .hamburger {
@@ -447,7 +453,7 @@ canvas {
   }
 
 
-  .about, .me, .contact, .socials {
+  .about, .me, .socials {
     width: 60vw;
   }
 

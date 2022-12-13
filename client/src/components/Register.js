@@ -45,7 +45,7 @@ export default function Register() {
   return (
     <div className="content">
       <div className="register">
-        <h1>REGISTER</h1>
+        <h2>REGISTER</h2>
         {error && <p>{error}</p>}
         <form>
           <input

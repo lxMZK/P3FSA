@@ -8,10 +8,12 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Projects from './components/Projects';
 import Register from './components/Register';
+import Graphics from './components/Graphics'
 
 function App() {
   return (
     <div className="App">
+      <Graphics />
       <BrowserRouter>
         <Navbar />
         <Routes>

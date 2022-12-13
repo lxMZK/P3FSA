@@ -53,6 +53,7 @@ For the initial development stage I will be focusing on creating a general portf
 
 ## WIP
 
+Contrast
 User Profile Views
 User Image
 User Styles and other settings

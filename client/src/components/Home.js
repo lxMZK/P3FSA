@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import Graphics from './Graphics';
 import { AuthContext } from '../context/authContext';
 
 export default function Home() {
@@ -12,7 +11,6 @@ export default function Home() {
         <h3>
           My name is <b>Alex Mizak</b> and I am a web developer!
         </h3>
-        <Graphics />
       </div>
     </div>
   );
