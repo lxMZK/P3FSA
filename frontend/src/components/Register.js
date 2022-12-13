@@ -20,7 +20,6 @@ export default function Register() {
   };
 
   const handleSubmit = (e) => {
-    console.log(regex.test(inputs.email.toLowerCase()))
     setError(null);
     e.preventDefault();
     if (inputs.username === '') {
