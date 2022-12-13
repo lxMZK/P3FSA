@@ -48,10 +48,6 @@ export default function Contact() {
         <form ref={form} id="email">
           <div>
             <input
-              type="hidden"
-              name="access_key"
-            />
-            <input
               id="name"
               name="name"
               placeholder="Name"
