@@ -293,6 +293,7 @@ input {
   width: calc(100% - 72px);
   height: 30px;
   background-color: black;
+  color: white
 }
 
 .msgSub{

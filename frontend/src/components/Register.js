@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Register() {
+  const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
   const navigate = useNavigate();
 
   const [error, setError] = useState(null);
@@ -19,20 +20,21 @@ export default function Register() {
   };
 
   const handleSubmit = (e) => {
+    console.log(regex.test(inputs.email.toLowerCase()))
     setError(null);
     e.preventDefault();
     if (inputs.username === '') {
       setError('Invalid Username');
       return;
     }
-    if (inputs.email === '') {
+    if (inputs.email === '' || !regex.test(inputs.email.toLowerCase())) {
       setError('Invalid Email');
       return;
     }
     if (inputs.password === '') {
       setError('Invalid Password');
       return;
-    }
+    } 
     try {
       axios.post('/auth/register', inputs);
       navigate('/auth/login');

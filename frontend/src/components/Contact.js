@@ -2,29 +2,32 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/authContext';
 
 export default function Contact() {
+  const regex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
   const { currentUser } = useContext(AuthContext);
-  const [error,setError] = useState(null)
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     const form = document.getElementById('email');
     const formData = new FormData(form);
     const object = {};
-    
-    setError(null)
+
+    setError(null);
     e.preventDefault();
 
     formData.forEach((value, key) => {
       object[key] = value;
     });
 
-    if (object['email']===''){
-      setError('Invalid Email')
-      return
+    if (object['email'] === '' || !regex.test(object['email'].toLowerCase())) {
+      setError('Invalid Email');
+      return;
     }
 
-    if (object['message']===''){
-      setError('Invalid Message')
-      return
+    if (object['message'] === '') {
+      setError('Invalid Message');
+      return;
     }
 
     const json = JSON.stringify(object);
@@ -45,7 +48,7 @@ export default function Contact() {
     <div className="content toggleV">
       <div className="contact">
         <h1>CONTACT ME</h1>
-        {error&&<p>{error}</p>}
+        {error && <p>{error}</p>}
         <form id="email">
           <div>
             <input
