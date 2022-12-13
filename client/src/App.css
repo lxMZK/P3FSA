@@ -130,6 +130,18 @@ nav a:hover, nav a:hover> i {
   justify-content: center;
   height: 100vh;
   width: 100%;
+  margin-left: 100px;
+}
+
+.homeContent {
+  display: flex;
+  z-index: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
 }
 
 .me {
@@ -150,6 +162,7 @@ nav a:hover, nav a:hover> i {
   flex-wrap: wrap;
   flex-direction: column;
   color: white;
+  margin-right: 100px;
 }
 
 .projects div {
@@ -223,10 +236,6 @@ input {
 
 .auth p {
   color: rgb(70, 0, 0);
-}
-
-.content {
-  margin-left: 100px;
 }
 
 .board {
@@ -438,10 +447,6 @@ canvas {
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .content {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
 
   .about, .me, .contact, .socials {
     width: 60vw;
