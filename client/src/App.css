@@ -162,7 +162,6 @@ nav a:hover, nav a:hover> i {
   flex-wrap: wrap;
   flex-direction: column;
   color: white;
-  margin-right: 100px;
 }
 
 .projects div {
