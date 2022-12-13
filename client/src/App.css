@@ -149,15 +149,24 @@ nav a:hover, nav a:hover> i {
   text-align: center;
 }
 
+.home h1, .home h3 {
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 25%;
+}
+
 .me {
   width: 30vw;
   margin: 5vw;
-  box-shadow: -10px 10px 20px 2px;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .about {
   width: 30vw;
   margin: 5vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
 .home {
@@ -187,13 +196,16 @@ nav a:hover, nav a:hover> i {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
 .project {
   width: 20vw;
   height: 20vw;
   border-radius: 5%;
-  box-shadow: -10px 10px 20px 2px;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .contact form {
@@ -257,9 +269,9 @@ input {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
   overflow: auto;
-  opacity: 50%;
 }
 
 .board::-webkit-scrollbar {
@@ -313,7 +325,7 @@ input {
   border-top: none;
   width: calc(100% - 72px);
   height: 30px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   color: white
 }
 
@@ -325,7 +337,7 @@ input {
   border: none;
   border-right: solid 1px;
   border-bottom: solid 1px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
 }
 
@@ -370,7 +382,7 @@ input[type=submit]:hover {
 .login, .register {
   background-color: white;
   border-radius: 10px;
-  box-shadow: -10px 10px 20px 2px;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
   padding: 10px;
   padding-top: 0;
 }
