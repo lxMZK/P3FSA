@@ -53,7 +53,6 @@ For the initial development stage I will be focusing on creating a general portf
 
 ## WIP
 
-Style improvements
 User Profile Views
 User Image
 User Styles and other settings
@@ -76,4 +75,4 @@ Chat moderation functions
   - [x] Technologies implemented
   - [x] Outstanding bugs/WIP
 - [x] Track on github
-- [ ] DEPLOY
+- [x] DEPLOY
