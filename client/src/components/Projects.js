@@ -18,7 +18,7 @@ export default function Projects() {
             <p>A recreation of the classic game known as Snake</p>
             <p>
               Github URL:{' '}
-              <a href="test.com">
+              <a href="https://github.com/lxMZK/Snake">
                 https://github.com/lxMZK/Snake
               </a>
             </p>
