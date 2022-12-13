@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const PORT = process.env.PORT || 3001;
+const axios = require('axios')
 
 app.use(cors());
 app.use(express.json());
@@ -76,6 +77,12 @@ app.post('/auth/logout', (req, res) => {
     })
     .status(200)
     .json('logged out');
+});
+
+app.post('/contact', async (req, res) => {
+  req.body.access_key = process.env.ACCESS_KEY
+  await axios.post('https://api.web3forms.com/submit', req.body);
+  return res.status(200).json("Email Sent")
 });
 
 app.get('/chat', (req, res) => {

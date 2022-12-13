@@ -1,47 +1,43 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { AuthContext } from '../context/authContext';
+import axios from 'axios';
 
 export default function Contact() {
   const regex =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   const { currentUser } = useContext(AuthContext);
+  const form = useRef(null)
   const [error, setError] = useState(null);
+  const [inputs, setInputs] = useState({
+    access_key: '',
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const handleSubmit = async (e) => {
-    const form = document.getElementById('email');
-    const formData = new FormData(form);
-    const object = {};
-
     setError(null);
     e.preventDefault();
 
-    formData.forEach((value, key) => {
-      object[key] = value;
-    });
-
-    if (object['email'] === '' || !regex.test(object['email'].toLowerCase())) {
+    if (inputs.email === '' || !regex.test(inputs.email.toLowerCase())) {
       setError('Invalid Email');
       return;
     }
 
-    if (object['message'] === '') {
+    if (inputs.message === '') {
       setError('Invalid Message');
       return;
     }
 
-    const json = JSON.stringify(object);
+    await axios.post('/contact',inputs)
 
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: json,
-    });
-
-    form.reset();
+    form.current.reset();
   };
 
   return (
@@ -49,18 +45,18 @@ export default function Contact() {
       <div className="contact">
         <h1>CONTACT ME</h1>
         {error && <p>{error}</p>}
-        <form id="email">
+        <form ref={form} id="email">
           <div>
             <input
               type="hidden"
               name="access_key"
-              value="b0b74868-d2e9-4c90-bf4f-3c0adfc3f0ec"
             />
             <input
               id="name"
               name="name"
               placeholder="Name"
               type="text"
+              onChange={handleChange}
               defaultValue={
                 currentUser
                   ? (currentUser.fname ? currentUser.fname : '') +
@@ -75,13 +71,14 @@ export default function Contact() {
               name="email"
               placeholder="Email"
               type="email"
+              onChange={handleChange}
               defaultValue={currentUser ? currentUser.email : ''}
               required
             />
           </div>
-          <input id="subject" name="subject" placeholder="Subject" />
+          <input id="subject" name="subject" placeholder="Subject" onChange={handleChange} />
           <div>
-            <input id="message" name="message" placeholder="Message" required />
+            <input id="message" name="message" placeholder="Message" onChange={handleChange} required />
           </div>
           <input
             id="submit"
