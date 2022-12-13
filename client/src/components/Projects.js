@@ -13,7 +13,6 @@ export default function Projects() {
       <div className="projects">
         <h1>PROJECTS</h1>
         <div>
-          <img className="project" src={snake} alt="project" />
           <div>
             <h3>Snake Game</h3>
             <p>A recreation of the classic game known as Snake</p>
@@ -30,6 +29,7 @@ export default function Projects() {
               </a>
             </p>
           </div>
+          <img className="project" src={snake} alt="project" />
         </div>
         <div>
           <div>
@@ -48,7 +48,6 @@ export default function Projects() {
           <img className="project" src={msa} alt="project" />
         </div>
         <div>
-          <img className="project" src={chat} alt="project" />
           <div>
             <h3>THIS PAGE!</h3>
             <p>
@@ -67,6 +66,7 @@ export default function Projects() {
               </Link>
             </p>
           </div>
+          <img className="project" src={chat} alt="project" />
         </div>
       </div>
     </div>
