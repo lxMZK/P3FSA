@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import defaultImg from '../assets/default.jpg';
 import { AuthContext } from '../context/authContext';
@@ -6,6 +6,13 @@ import { AuthContext } from '../context/authContext';
 export default function Navbar() {
   const { currentUser, logout } = useContext(AuthContext);
   const location = useLocation().pathname;
+  const hamburger = useRef(null);
+  const navMenu = useRef(null);
+
+  function mobileMenu() {
+    hamburger.current.classList.toggle('active');
+    navMenu.current.classList.toggle('active');
+  }
 
   function show() {
     let hidden = [
@@ -18,10 +25,14 @@ export default function Navbar() {
   }
 
   function hide() {
+    hamburger.current.classList.remove('active');
+    navMenu.current.classList.remove('active');
+    navMenu.current.classList.toggle('hide')
     let shown = document.getElementsByClassName('toggleV');
     for (let i = 0; i < shown.length; i++) {
       shown[i].classList.add('hide');
     }
+    
     setTimeout(show, 1000);
   }
 
@@ -47,7 +58,7 @@ export default function Navbar() {
         referrerpolicy="no-referrer"
       />
       <ul className="container toggleV">
-        <ul className="toggleV">
+        <ul ref={navMenu} className="toggleV nav-menu">
           <li>
             <Link onClick={handle1} to="/">
               <i class="fa-solid fa-house"></i>
@@ -77,13 +88,18 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link onClick={handle2} to={currentUser?'/chat':'/auth/login'}>
+            <Link onClick={handle2} to={currentUser ? '/chat' : '/auth/login'}>
               <i class="fa-solid fa-message"></i>
               <br />
               CHAT
             </Link>
           </li>
         </ul>
+        <div ref={hamburger} className="hamburger" onClick={mobileMenu}>
+          <span className="bar" />
+          <span className="bar" />
+          <span className="bar" />
+        </div>
         <li className="handle">
           <h2>
             <a href="https://github.com/lxMZK">lxMZK</a>
