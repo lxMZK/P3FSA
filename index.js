@@ -25,34 +25,29 @@ app.post('/auth/register', async (req, res) => {
 });
 
 app.post('/auth/login', (req, res) => {
-  pool
-    .connect()
-    .query(
-      'SELECT * FROM users WHERE username = $1',
-      [req.body.username],
-      (err, data) => {
-        if (err) return res.json(err);
-        if (data.rows.length === 0)
-          return res.status(404).json('User not found!');
+  pool.query(
+    'SELECT * FROM users WHERE username = $1',
+    [req.body.username],
+    (err, data) => {
+      if (err) return res.json(err);
+      if (data.rows.length === 0)
+        return res.status(404).json('User not found!');
 
-        const auth = bcrypt.compareSync(
-          req.body.password,
-          data.rows[0].password
-        );
+      const auth = bcrypt.compareSync(req.body.password, data.rows[0].password);
 
-        if (!auth) return res.status(400).json('Wrong password');
+      if (!auth) return res.status(400).json('Wrong password');
 
-        const token = jwt.sign({ id: data.rows[0].id }, 'jwtkey');
-        const { password, ...other } = data.rows[0];
+      const token = jwt.sign({ id: data.rows[0].id }, 'jwtkey');
+      const { password, ...other } = data.rows[0];
 
-        res
-          .cookie('access_token', token, {
-            httpOnly: true,
-          })
-          .status(200)
-          .json(other);
-      }
-    );
+      res
+        .cookie('access_token', token, {
+          httpOnly: true,
+        })
+        .status(200)
+        .json(other);
+    }
+  );
 });
 
 app.post('/auth/logout', (req, res) => {
@@ -88,6 +83,10 @@ app.post('/chat', async (req, res) => {
     req.body.id,
   ]);
 });
+
+app.get('/dev',(req,res)=>{
+  res.send({message:'server here'})
+})
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build/index.html'));
