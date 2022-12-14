@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 const PORT = process.env.PORT || 3001;
 const axios = require('axios');
+const Pool = require('pg').Pool;
 
 app.use(cors());
 app.use(express.json());
@@ -85,7 +86,8 @@ app.post('/chat', async (req, res) => {
 });
 
 app.get('/dev',(req,res)=>{
-  res.send({message:process.env.DATABASE_URL})
+  const pool = new Pool(process.env.DATABASE_URL)
+  res.send({message:pool})
 })
 
 app.get('*', (req, res) => {
