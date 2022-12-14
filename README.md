@@ -58,6 +58,8 @@ User Image
 User Styles and other settings
 Chat moderation functions
 
+Backend deploy
+
 ### Requirements
 
 - [x] User Authentication
