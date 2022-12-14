@@ -106,14 +106,10 @@ app.post('/chat', async (req, res) => {
 
 app.get('/dev', (req, res) => {
   const connectionString = process.env.DATABASE_URL;
-  const pool = new Pool({
-    connectionString,
-  });
+  const pool = new Pool(connectionString);
   pool.query('SELECT * FROM users', (err, data) => {
     res.send(data.rows);
   });
-  res.send('test');
-  res.send('test');
   res.send('test');
 });
 
