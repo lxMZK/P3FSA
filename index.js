@@ -110,10 +110,8 @@ app.get('/dev', (req, res) => {
     connectionString: connectionString,
   });
   pool.query('SELECT * FROM users', (err, data) => {
-    res.send(err)
     res.send(data.rows);
   });
-  res.send('test');
 });
 
 app.get('*', (req, res) => {
