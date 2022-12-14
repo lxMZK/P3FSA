@@ -85,7 +85,7 @@ app.post('/chat', async (req, res) => {
 });
 
 app.get('/dev',(req,res)=>{
-  res.send({message:'server here'})
+  res.send({message:process.env.DATABASE_URL})
 })
 
 app.get('*', (req, res) => {
