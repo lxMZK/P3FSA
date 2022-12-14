@@ -7,8 +7,8 @@ const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const PORT = process.env.PORT || 3001;
-const axios = require('axios');
-const Pool = require('pg').Pool;
+const axios = require('axios')
+const Pool = require('pg').Pool
 
 app.use(cors());
 app.use(express.json());
@@ -18,10 +18,29 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
 }
 
-app.post('/auth/register', async (req, res) => {
-  await pool.query(
-    'INSERT INTO users(username, email, password, fname, lname) VALUES ($1, $2, $3, $4, $5)',
-    [req.body.username, req.body.email, hash, req.body.fname, req.body.lname]
+app.post('/auth/register', (req, res) => {
+  pool.query(
+    'SELECT * FROM users WHERE email = $1 OR username = $2',
+    [req.body.email, req.body.username],
+    async (err, data) => {
+      if (err) return res.json(err);
+      if (data.rows.length != 0)
+        return res.status(409).json('User already exists');
+
+      const salt = bcrypt.genSaltSync(10);
+      const hash = bcrypt.hashSync(req.body.password, salt);
+
+      await pool.query(
+        'INSERT INTO users(username, email, password, fname, lname) VALUES ($1, $2, $3, $4, $5)',
+        [
+          req.body.username,
+          req.body.email,
+          hash,
+          req.body.fname,
+          req.body.lname,
+        ]
+      );
+    }
   );
 });
 
@@ -62,9 +81,9 @@ app.post('/auth/logout', (req, res) => {
 });
 
 app.post('/contact', async (req, res) => {
-  req.body.access_key = process.env.ACCESS_KEY;
+  req.body.access_key = process.env.ACCESS_KEY
   await axios.post('https://api.web3forms.com/submit', req.body);
-  return res.status(200).json('Email Sent');
+  return res.status(200).json("Email Sent")
 });
 
 app.get('/chat', (req, res) => {
@@ -86,8 +105,14 @@ app.post('/chat', async (req, res) => {
 });
 
 app.get('/dev',(req,res)=>{
-  const pool = new Pool(process.env.DATABASE_URL)
-  res.send({message:pool})
+  const connectionString = process.env.DATABASE_URL
+  const pool = new Pool({
+    connectionString
+  })
+  pool.query('SELECT * FROM users',(err,data) => {
+    return res.status(200).json(data)
+  })
+  res.send({message: 'server'})
 })
 
 app.get('*', (req, res) => {
